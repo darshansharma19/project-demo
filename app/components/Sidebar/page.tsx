@@ -10,7 +10,7 @@ const Sidebar = () => {
     const [activeButton, setActiveButton] = useState('');
 
     const handleClick = (buttonName: string) => {
-      setActiveButton(activeButton === buttonName ? '' : buttonName);
+      setActiveButton(buttonName);
     };
   
     const buttonData = [
@@ -30,17 +30,17 @@ const Sidebar = () => {
         '/components/Influencer',
         '/components/Integrations',
         '/components/Profile',
-        '/components/Media-assets',
+        '/components/Mediaassets',
         '/components/Expenses',
         '/components/Notifications',
         '/components/Settings',
-        '/components/Users-and-permissions',
+        '/components/Usersnpermission',
       ];
 
     return ( 
         <div className="flex sm:mx-auto sm:w-full sm:max-w-md flex-row w-full text-left text-sm text-black relative font-regular-16-24 ">
             
-            <div className="relative w-full flex flex-col items-center justify-start gap-y-10 text-center text-[1.25rem] text-black font-playfair-display">
+            <div className="relative w-48 flex flex-col items-center justify-start px-7 py-12 gap-y-10 text-center text-[1.25rem] text-black font-playfair-display">
                 <div className="relative w-full flex gap-2  items-center justify-start">
                     <div className="flex items-center">
                         <Image src="/assets/logo.svg" width={40} height={40} alt="logo" />
@@ -69,8 +69,12 @@ const Sidebar = () => {
                         
                     </Link>
                 ))}
-                <div className="flex w-full flex-col gap-y-4 px-4 py-3 text-left text-[1rem] font-regular-16-24">
-                     <DarkModeToggle />
+                <div className="flex w-full flex-col gap-y-4 px-4  text-left text-[1rem] font-regular-16-24">
+                    <div className={`rounded  no-underline w-full flex cursor-pointer items-center justify-start  `}>
+                        <DarkModeToggle />
+                        <span className='rounded no-underline w-full flex cursor-pointer items-center justify-start px-4 py-3 gap-3'>Dark Mode</span>
+                     </div>
+                     
                 </div>
                 <Link href='/' className="relative rounded-lg no-underline cursor-pointer bg-mediumblue w-full  flex items-center justify-start py-3 px-4 gap-3 text-white text-base font-semibold">
                         <div className="w-8 h-8 flex items-center justify-start">
@@ -78,7 +82,9 @@ const Sidebar = () => {
                         </div>
                         <div className="leading-[1.5rem]">Logout</div>
                 </Link> 
+               
                 </div>
+                
                 
             </div>
 

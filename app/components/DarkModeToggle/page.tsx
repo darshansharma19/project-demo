@@ -1,28 +1,45 @@
-import { useState } from 'react';
+'use client';
+
+import React from 'react';
+
+import { useState, useEffect } from 'react';
 
 const DarkModeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode((prevState) => !prevState);
+  useEffect(() => {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      setIsDarkMode(true);
+    }
+  }, []);
 
-    // You'll need to implement your logic to switch themes here
-    // For this example, we'll just add a 'dark' class to the body
-    const body = document.body;
-    body.classList.toggle('dark');
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
   return (
-    <div className="flex flex-col gap-2 px-4 py-3 items-start justify-center cursor-pointer" onClick={toggleDarkMode}>
-      <div className={`relative rounded-[10px] justify-center items-center bg-black1 w-[30px]  h-4 ${isDarkMode ? 'justify-end' : ''}`}>
-        <div className={`className="relative justify-center items-center  rounded-full bg-white w-[10px] h-4 ${isDarkMode ? 'translate-x-5' : ''}`} />
-      </div>
-    
-    
-      <div className="relative text-base sm:text-lg md:text-xl leading-[1.5rem] font-regular-16-24 text-black1 text-left inline-block w-[9.75rem] h-[1.5rem]">
-        <p className="m-0">Dark Mode</p>
-        <p className="m-0">&nbsp;</p>
-    </div>
+    <div
+      id='dark-mode-toggle'
+      className={`relative flex border-2 border-solid items-center justify-start w-8 h-3 cursor-pointer rounded-full  bg-white dark:bg-gray-900`}
+      onClick={toggleDarkMode}
+    >
+      <div
+        id='switch'
+        className={`absolute w-3 h-3 bg-black rounded-full shadow-md dark:bg-white transition-transform duration-300 ${
+          isDarkMode ? 'transform translate-x-0' : 'transform translate-x-full'
+        }`}
+      ></div>
     </div>
   );
 };

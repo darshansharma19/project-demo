@@ -22,7 +22,7 @@ export default function Home() {
                         mt-6 
                         text-3xl 
                         tracking-tight 
-                        relative text-[1.63rem]
+                        relative
                         leading-[2.25rem] 
                         font-bold 
                         font-ubuntu 

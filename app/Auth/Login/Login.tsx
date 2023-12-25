@@ -20,7 +20,7 @@ const Login = () => {
                          <input type='email'
                           id='email'
                           placeholder='johndoe@gmail.com'
-                          className="rounded-lg box-border w-[25rem] h-[3rem] flex flex-row items-start justify-start py-[0.75rem] px-[1rem] text-gray-02 border-[1px] border-solid border-gray-02" />    
+                          className="rounded-lg box-border w-[25rem] h-[3rem] flex flex-row items-start justify-start py-[0.75rem] px-[1rem] text-gray-01 border-[1px] border-solid border-gray-03" />    
                     </div>
                         
                         {/* Password Input */}
@@ -33,7 +33,7 @@ const Login = () => {
                          <input type={showPassword ? 'text' : 'password'} 
                          id='password'
                          placeholder='...........' 
-                         className="rounded-lg box-border w-[25rem] h-[3rem] text-justify text-bold flex flex-row items-start justify-start py-[0.75rem] px-[1rem] text-gray-02 border-[1px] border-solid border-gray-02" />    
+                         className="rounded-lg box-border w-[25rem] h-[3rem] text-justify text-bold flex flex-row items-start justify-start py-[0.75rem] px-[1rem] text-gray-01 border-[1px] border-solid border-gray-03" />    
                     </div>
 
                     {/* Checkbox */}
