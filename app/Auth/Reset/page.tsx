@@ -59,7 +59,7 @@ const Reset = () => {
             <input type='email'
               id='email'
               placeholder='johndoe@gmail.com'
-              className="rounded-lg box-border w-[25rem] h-[3rem] flex flex-row items-start justify-start py-[0.75rem] px-[1rem] text-gray-01 border-[1px] border-solid border-gray-03" />    
+              className="rounded-lg focus:outline-none box-border w-[25rem] h-[3rem] flex flex-row items-start justify-start py-[0.75rem] px-[1rem] text-gray-01 border-[1px] border-solid border-gray-03" />    
         </div>
            
         <div className="relative w-full flex flex-col items-start justify-start gap-5 text-left text-sm text-dimgray font-semibold">
