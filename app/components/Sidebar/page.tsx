@@ -49,7 +49,7 @@ const Sidebar = () => {
                         Flavour Trail
                     </i>
                 </div>
-                <div className="flex w-full flex-col gap-y-4 px-4 py-3 text-left text-[1rem] font-regular-16-24">
+                <div className="flex w-full flex-col gap-y-4 py-3 text-left text-[1rem] font-regular-16-24">
                 {buttonData.map((button, index) => (
                     <Link href={buttonRoutes[index]} key={index}
                         
@@ -76,7 +76,7 @@ const Sidebar = () => {
                      </div>
                      
                 </div>
-                <Link href='/' className="relative rounded-lg no-underline cursor-pointer bg-mediumblue w-full  flex items-center justify-start py-3 px-4 gap-3 text-white text-base font-semibold">
+                <Link href='/' className="relative mt-14 rounded-lg no-underline cursor-pointer bg-mediumblue w-full  flex items-center justify-start py-3 px-4 gap-3 text-white text-base font-semibold">
                         <div className="w-8 h-8 flex items-center justify-start">
                             <img className="w-6 h-6 object-cover" alt="Logout" src="/assets/Logout.svg" />
                         </div>
