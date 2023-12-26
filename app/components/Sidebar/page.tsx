@@ -52,8 +52,7 @@ const Sidebar = () => {
                 <div className="flex w-full flex-col gap-y-4 py-3 text-left text-[1rem] font-regular-16-24">
                 {buttonData.map((button, index) => (
                     <Link href={buttonRoutes[index]} key={index}
-                        
-                        className={`rounded bg-${activeButton === button.name ? 'mediumblue' : 'white'} font-${activeButton === button.name ? 'semibold' : 'regular'} no-underline w-full flex cursor-pointer items-center justify-start px-4 py-3 gap-3 text-${activeButton === button.name ? 'white' : 'black'}`}
+                        className={`rounded  bg-${activeButton === button.name ? 'mediumblue' : 'white'} font-${activeButton === button.name ? 'semibold' : 'regular'} no-underline w-full flex cursor-pointer items-center justify-start px-4 py-3 gap-3 text-${activeButton === button.name ? 'white' : 'black'}`}
                         onClick={() => handleClick(button.name)}
                         >
                         <Image
