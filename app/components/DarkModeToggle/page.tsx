@@ -25,15 +25,15 @@ const DarkModeToggle = () => {
   return (
     <div
     id='dark-mode-toggle'
-    className={`relative flex border-2 border-solid items-center justify-start w-8 h-3 cursor-pointer rounded-full  bg-white dark:bg-gray-900 transition-colors duration-300 ${
+    className={`relative flex border-2 border-solid items-center justify-start w-8 h-3 p-[2px] cursor-pointer rounded-full  transition-colors duration-300 ${
       isDarkMode ? 'bg-white' : 'bg-gray-900 dark:bg-gray-900'
     } `}
     onClick={toggleDarkMode}
   >
     <div
       id='switch'
-      className={`absolute w-3 h-3 bg-black rounded-full shadow-md dark:bg-white transition-transform duration-300 ${
-        isDarkMode ? 'bg-black dark:bg-white transform translate-x-0' : 'bg-white dark:bg-gray-900 transform translate-x-full'
+      className={`absolute w-3 h-3 bg-black rounded-full shadow-md transition-transform duration-300 ${
+        isDarkMode ? 'bg-white dark:bg-gray-900 transform translate-x-0' : 'bg-gray-900 dark:bg-white transform translate-x-full'
       }`}
     ></div>
   </div>
