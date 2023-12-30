@@ -9,8 +9,8 @@ const Dashboard = () => {
         <Sidebar />
       </div>
       <div className="w-3/4 min-h-screen px-12 py-8 flex flex-col justify-between">
-        <div className="h-1/4"><Header/></div>
-        <div className="h-3/4">Dashboard</div>
+        <div className=""><Header/></div>
+        <div className='m-0 px-2 py-12 h-full font-bold'>Dashboard</div>
       </div>
     </div>
   );

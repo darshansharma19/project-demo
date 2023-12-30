@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Sidebar from '../Sidebar/page';
+import Header from '../Header/page';
 
 const Notifications = () => {
     return ( 
@@ -9,7 +10,8 @@ const Notifications = () => {
         <Sidebar />
       </div>
       <div className="w-3/4 min-h-screen px-12 py-8 flex flex-col justify-between">
-        <div>Notifications</div>
+          <div className=""><Header/></div>
+          <div className='m-0 px-2 py-12 h-full font-bold'>Notifications</div>
       </div>
     </div>
      );
