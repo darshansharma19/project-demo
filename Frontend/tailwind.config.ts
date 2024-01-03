@@ -65,8 +65,12 @@ const config: Config = {
             "100": "#171717",
             "200": "#111",
             "300": "#020202",
-            "400": "#010101"
+            "400": "#010101",
             },
+            "tertiary": "#5e5e5e",
+            "background-light": "#fff",
+            "border": "#d4d4d8",
+            "primary-light": "#bfdbfe",
             "mediumpurple": "#c88aff",
             "gray-05": "#e8e8e8",
             "secondary": "#525256",
@@ -83,9 +87,13 @@ const config: Config = {
               "ubuntu": "Ubuntu",
               "regular-16-24": "Inter",
               "playfair-display": "'Playfair Display'",
+              "segoe-ui": "'Segoe UI'",
           },
           "borderRadius": {
-            "13xl": "32px"
+            "13xl": "32px",
+            '481xl': '500px',
+            "356xl": "375px",
+            "390xl-7": "409.7px",
             },
 },
       "fontSize": {

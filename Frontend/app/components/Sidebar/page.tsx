@@ -38,7 +38,7 @@ const Sidebar = () => {
       ];
 
     return ( 
-        <div className="flex sm:mx-auto sm:w-full sm:max-w-md flex-row w-full text-left text-sm text-black relative font-regular-16-24 ">
+        <div className="flex bg-white sm:mx-auto sm:w-full sm:max-w-md flex-row w-full text-left text-sm text-black relative font-regular-16-24 ">
             
             <div className="relative w-48 flex flex-col items-center justify-start px-7 py-12 gap-y-10 text-center text-[1.25rem] text-black font-playfair-display">
                 <div className="relative w-full flex gap-2  items-center justify-start">
@@ -49,10 +49,10 @@ const Sidebar = () => {
                         Flavour Trail
                     </i>
                 </div>
-                <div className="flex w-full flex-col gap-y-4 py-3 text-left text-[1rem] font-regular-16-24">
+                <div className="flex w-full flex-col gap-y-4 py-3 px-6 text-left text-[1rem] font-regular-16-24">
                 {buttonData.map((button, index) => (
                     <Link href={buttonRoutes[index]} key={index}
-                        className={`rounded  bg-${activeButton === button.name ? 'mediumblue' : 'white'} font-${activeButton === button.name ? 'semibold' : 'regular'} no-underline w-full flex cursor-pointer items-center justify-start px-4 py-3 gap-3 text-${activeButton === button.name ? 'white' : 'black'}`}
+                        className={`rounded  bg-${activeButton === button.name ? 'mediumblue' : 'white'} font-${activeButton === button.name ? 'semibold' : 'regular'} no-underline w-full flex cursor-pointer items-center justify-start px-3 py-3 gap-3 text-${activeButton === button.name ? 'white' : 'black'}`}
                         onClick={() => handleClick(button.name)}
                         >
                         <Image
@@ -75,7 +75,7 @@ const Sidebar = () => {
                      </div>
                      
                 </div>
-                <Link href='/' className="relative mt-14 rounded-lg no-underline cursor-pointer bg-mediumblue w-full  flex items-center justify-start py-3 px-4 gap-3 text-white text-base font-semibold">
+                <Link href='/' className="relative mt-14 rounded-lg no-underline cursor-pointer bg-mediumblue w-full  flex items-center justify-start py-3 px-3 gap-3 text-white text-base font-semibold">
                         <div className="w-8 h-8 flex items-center justify-start">
                             <img className="w-6 h-6 object-cover" alt="Logout" src="/assets/Logout.svg" />
                         </div>
