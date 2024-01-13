@@ -50,6 +50,7 @@ const config: Config = {
   "theme": {
       "extend": {
           "colors": {
+              "deeppink": "#e90090",
               "white": "#fff",
               "black1": "#000",
               "mediumblue": "#4500d8",
@@ -72,6 +73,7 @@ const config: Config = {
             "border": "#d4d4d8",
             "primary-light": "#bfdbfe",
             "mediumpurple": "#c88aff",
+            
             "gray-05": "#e8e8e8",
             "secondary": "#525256",
             "special-bg": "rgba(210, 210, 210, 0.25)",
@@ -88,6 +90,11 @@ const config: Config = {
               "regular-16-24": "Inter",
               "playfair-display": "'Playfair Display'",
               "segoe-ui": "'Segoe UI'",
+              "bold-16-24": "Inter",
+              "semibold-20-28": "Inter",
+              "regular-14-20": "Inter",
+              "header-22-32": "Inter",
+              "medium-12-16": "Inter",
           },
           "borderRadius": {
             "13xl": "32px",

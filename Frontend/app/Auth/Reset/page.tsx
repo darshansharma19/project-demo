@@ -39,7 +39,7 @@ const Reset = () => {
                   className="mx-auto w-auto justify-center relative align-middle object-cover rounded-md"
                   src="/assets/logo.svg"
                   alt="Logo"
-                />   Flavour Trail
+                />   Flavor Trail
             </h2>
       </div>
          

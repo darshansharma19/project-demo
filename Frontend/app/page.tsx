@@ -36,7 +36,7 @@ export default function Home() {
                   className="mx-auto w-auto relative justify-center align-middle object-cover rounded-md"
                   src="/assets/logo.svg"
                   alt="Logo"
-                />   Flavour Trail
+                />   Flavor Trail
                 </h2>
             </div>
             <Login />      
