@@ -8,6 +8,7 @@ import DarkModeToggle from '../DarkModeToggle/page';
 import { useRouter, usePathname } from 'next/navigation';
 
 const Sidebar = () => {
+  
     const router = useRouter();
     const pathname = usePathname();
 
@@ -122,7 +123,7 @@ const handleIsActive = (route: string) => {
                 >
                   {button.options?.map((option, idx) => {
                     return (
-                      <Link href='' className="w-168 h-318 flex-shrink-0 m-2 p-1 text-md hover:bg-mediumblue hover:text-white cursor-pointer rounded-md" >
+                      <Link href='' className="w-168 h-318 flex-shrink-0 no-underline m-2 p-1 text-md hover:bg-mediumblue hover:text-white cursor-pointer rounded-md" >
                         {option.name}
                       </Link>
                     );

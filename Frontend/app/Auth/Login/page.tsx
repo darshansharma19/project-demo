@@ -48,9 +48,9 @@ const Login = () => {
 
                         {/* Login Button */}
 
-                            <button className="relative rounded bg-mediumblue w-full h-[3rem] flex flex-row items-center justify-center py-[1rem] px-[0.75rem] box-border text-center text-[1rem] text-white font-semibold-16-24 cursor-pointer">
+                            <Link href='' className="relative rounded bg-mediumblue w-full h-[3rem] flex flex-row items-center justify-center py-[1rem] px-[0.75rem] box-border text-center text-[1rem] text-white font-semibold-16-24 cursor-pointer">
                                 <div className="relative leading-6 font-semibold w-40">Login</div>
-                            </button>
+                            </Link >
                     </div>
 
                     {/* Or */}
