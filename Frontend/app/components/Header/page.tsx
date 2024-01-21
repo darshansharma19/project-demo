@@ -2,6 +2,8 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../Config/firebase';
 
 const Header = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -23,10 +25,10 @@ const Header = () => {
     }, 3000); // Clearing after 3 seconds (adjust as needed)
   };
 
-  const user = {
-    avatar: '/assets/avatar.svg', // Replace with the actual path to the user's avatar
-    name: 'John Doe', // Replace with the user's name
-  };
+ const [user] = useAuthState(auth);
+  const { displayName, photoURL } = user || {};
+
+  
 
     return ( 
       <div className="relative flex flex-col lg:flex-row gap-2 w-full h-auto lg:h-12 text-left text-base dark:text-white text-black font-regular-16-24">
@@ -55,7 +57,7 @@ const Header = () => {
               src="/assets/bell.svg"
               width={24}
               height={24}
-              alt="Avatar"
+              alt="bell"
               className="relative flex items-start overflow-hidden shrink-0 object-cover justify-start"
             />
             {hasNotification && (
@@ -67,14 +69,14 @@ const Header = () => {
           <div className="flex items-center">
             <div className="mr-2">
               <Image
-                src={user.avatar}
+                src={photoURL || '/assets/avatar.svg'}
                 width={40}
                 height={40}
                 alt="User Avatar"
                 className="rounded-full "
               />
             </div>
-            <span>{user.name}</span>
+            <span>{displayName}</span>
           </div>
         </div>
       </div>
