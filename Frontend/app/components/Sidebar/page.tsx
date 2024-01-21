@@ -6,10 +6,16 @@ import { useState } from 'react';
 import Link from 'next/link';
 import DarkModeToggle from '../DarkModeToggle/page';
 import { useRouter, usePathname } from 'next/navigation';
+import { getAuth, signOut } from "firebase/auth";
+import { app, auth } from "../../Config/firebase";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const Sidebar = () => {
   
-    const router = useRouter();
     const pathname = usePathname();
 
     const [activeButton, setActiveButton] = useState('');
@@ -18,7 +24,45 @@ const Sidebar = () => {
       setActiveButton(buttonName);
     };
 
-    
+    const auth = getAuth(app);
+    const signOut = async () => {
+      try {
+        await auth.signOut();
+        // Remove user details from session
+        sessionStorage.removeItem('user');
+        console.log('Logout Successful');
+         // Display success notification
+      toast.success('LogOut successful!', {
+        position: 'top-center',
+        autoClose: false, // 10 seconds
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        className: 'h-[3rem] w-[25rem] flex flex-row items-center justify-center py-[0.75rem] px-[1rem] text-center text-[1rem] text-white font-semibold-16-24 bg-mediumblue rounded-lg',
+      });
+        // Redirect to login page or do something else
+        setTimeout(() => {
+          // Redirect to Dashboard
+          router.push('/');
+        }, 1000);
+      } catch (error) {
+        console.error('Error signing out', error);
+
+        // Display error notification
+        toast.error('Error signing out', {
+          position: 'top-center',
+          autoClose: false, // 5 seconds
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          className: 'h-[3rem] w-[25rem] flex flex-row items-center justify-center py-[0.75rem] px-[1rem] text-center text-[1rem] text-white font-semibold-16-24 bg-red-500 rounded-lg',
+        });
+      }
+    };
 
 const handleIsActive = (route: string) => {
     if (route === pathname) {
@@ -40,11 +84,11 @@ const handleIsActive = (route: string) => {
             name: "Settings",
             icon: "/assets/settings.svg",
             options: [
-              { name: "Integrations" },
-              { name: "Custom Code" },
-              { name: "Database Management" },
-              { name: "Authentications" },
-              { name: "API's" },
+              { name: "Integrations", icon: '/assets/carbon_ibm-cloud-pak-integration.svg'},
+              { name: "Custom Code", icon: '/assets/mdi_code.svg'},
+              { name: "Database Management", icon: '/assets/mdi_database-outline.svg'},
+              { name: "Authentications", icon: '/assets/authentication.svg'},
+              { name: "API's", icon: '/assets/light_api.svg'},
             ],
           },
         { name: 'Users and Permissions', icon: '/assets/mdi_users.svg' },
@@ -62,9 +106,19 @@ const handleIsActive = (route: string) => {
         '/components/Usersnpermission',
       ];
 
+      const optionRoutes = [
+          '/components/Integrations',
+          '/components/CustomCode',
+          '/components/DatabaseManagement',
+          '/components/Authentication',
+          '/components/APIs',
+        ];
+
+      const  router = useRouter();
+
     return ( 
-        <div className="flex bg-white sm:mx-auto sm:w-full sm:max-w-md h-full flex-row w-72 text-left text-sm text-black relative font-regular-16-24 dark:text-white dark:bg-gray-300">
-            
+        <div className="flex bg-white lg:mx-auto lg:w-full lg:max-w-md h-full flex-row w-72 text-left text-sm text-black relative font-regular-16-24 dark:text-white dark:bg-gray-300">
+            <ToastContainer />
             <div className="relative   w-48 flex flex-col items-center justify-start mx-7 py-12 gap-y-10 text-center text-[1.25rem] font-playfair-display ">
                 <div className="relative w-full flex flex-row gap-2  items-center justify-start">
                     <div className="flex items-center">
@@ -118,13 +172,20 @@ const handleIsActive = (route: string) => {
               {button.name === "Settings" ? (
                 <div
                   className={`settings-options ${
-                    activeButton !== "Settings" ? "hidden" : ""
+                    handleIsActive(buttonRoutes[index]) === "active" ? '' : 'hidden'
                   } flex flex-col`}
                 >
                   {button.options?.map((option, idx) => {
                     return (
-                      <Link href='' className="w-168 h-318 flex-shrink-0 no-underline m-2 p-1 text-md hover:bg-mediumblue hover:text-white cursor-pointer rounded-md" >
-                        {option.name}
+                      <Link href={optionRoutes[idx]} key={idx} onClick={()=> handleClick(option.name)}  className=" w-full flex items-center justify-start  gap-3 flex-shrink-0 no-underline m-2 p-1  text-md dark:hover:bg-mediumpurple hover:bg-mediumblue text-black dark:text-white hover:text-white cursor-pointer rounded-md" >
+                        <Image
+                          src={option.icon}
+                          width={24}
+                          height={24}
+                          alt={option.name.toLowerCase()}
+                          className="relative"
+                        />
+                        <span>{option.name}</span>
                       </Link>
                     );
                   })}
@@ -141,12 +202,12 @@ const handleIsActive = (route: string) => {
                      </div>
                      
                 </div>
-                <Link href='/' className="relative mt-14 rounded-lg no-underline cursor-pointer bg-mediumblue dark:bg-mediumpurple w-full  flex items-center justify-start py-3 pl-3 gap-3 text-white text-base font-semibold">
+                <button onClick={signOut} className="relative mt-14 rounded-lg no-underline cursor-pointer bg-mediumblue dark:bg-mediumpurple w-full  flex items-center justify-start py-3 pl-3 gap-3 text-white text-base font-semibold">
                         <div className="w-8 h-8 flex items-center justify-start">
                             <img className="w-6 h-6 object-cover" alt="Logout" src="/assets/Logout.svg" />
                         </div>
                         <div className="leading-[1.5rem]">Logout</div>
-                </Link> 
+                </button> 
                
                 </div>
                 

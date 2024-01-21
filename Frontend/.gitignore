@@ -16,6 +16,12 @@
 # production
 /build
 
+#firebase
+./app/Config
+./app/Config/firebase.ts
+/app/Config
+app/Config/
+
 # misc
 .DS_Store
 *.pem
