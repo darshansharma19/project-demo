@@ -1,19 +1,74 @@
 'use client';
 
-import React from 'react'
+import React, { FormEvent } from 'react'
 import Image from 'next/image'
 import { useState } from 'react';
 import Link from 'next/link';
+import { auth } from "../../Config/firebase";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useRouter } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Signup = () => {
-
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+    const [error, setError] = useState<string | null>(null);
+  const Signup = (e: FormEvent) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredentials) => {
+        // Signed in..
+        const user = userCredentials.user;
+        updateProfile(user, { displayName: name });
+        console.log("Signup Successful");
+
+         // Display success notification
+      toast.success('SignUp successful!', {
+        position: 'top-center',
+        autoClose: false, // 10 seconds
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        className: 'h-[3rem] w-[25rem] flex flex-row items-center justify-center py-[0.75rem] px-[1rem] text-center text-[1rem] text-white font-semibold-16-24 bg-mediumblue rounded-lg',
+      });
+
+      // Redirect to Login
+      setTimeout(() => {
+        // Redirect to Dashboard
+        router.push('/');
+      }, 1000);
+      })
+      .catch ((error: any) => {
+        const message = error?.message ?? 'An unknown error occurred';
+        setError(message);
+        console.error(`Error: ${message}`);
+      
+        // Display error notification
+        toast.error(message, {
+          position: 'top-center',
+          autoClose: false, // 5 seconds
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          className: 'h-[3rem] w-[25rem] flex flex-row items-center justify-center py-[0.75rem] px-[1rem] text-center text-[1rem] text-white font-semibold-16-24 bg-red-500 rounded-lg',
+        });
+      });
+  };
 
   return (
     
   <main className="flex min-h-screen flex-col items-center justify-between p-15">
+    <ToastContainer />
     <div 
             className="
                 flex 
@@ -52,7 +107,7 @@ const Signup = () => {
          
                 
         
-    <form action="" className='[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] shrink-0 flex w-full overflow-y-hidden flex-col items-center justify-start gap-[1.5rem] text-center text-[1rem] text-black font-semibold-16-24'>
+    <form onSubmit={(e) => { e.preventDefault; Signup(e)}} className='[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] shrink-0 flex w-full overflow-y-hidden flex-col items-center justify-start gap-[1.5rem] text-center text-[1rem] text-black font-semibold-16-24'>
     <b className="relative text-[1.5rem] leading-[1.75rem] inline-block font-bold-24-28 text-black text-center w-[21.38rem]">Create an account</b>
 
                   {/* Name Input */}
@@ -61,6 +116,7 @@ const Signup = () => {
                 <input type='Name'
                   id='Name'
                   placeholder='Tanzir Rahman'
+                  onChange={(e) => setName(e.target.value)}
                   className="rounded-lg focus:outline-none box-border w-[25rem] h-[3rem] flex flex-row items-start justify-start py-[0.75rem] px-[1rem] text-gray-01 border-[1px] border-solid border-gray-03" />    
             </div>
 
@@ -71,6 +127,7 @@ const Signup = () => {
                 <input type='email'
                   id='email'
                   placeholder='johndoe@gmail.com'
+                  onChange={(e) => setEmail(e.target.value)}
                   className="rounded-lg focus:outline-none box-border w-[25rem] h-[3rem] flex flex-row items-start justify-start py-[0.75rem] px-[1rem] text-gray-01 border-[1px] border-solid border-gray-03" />    
             </div>
                 
@@ -84,6 +141,7 @@ const Signup = () => {
                 <input type={showPassword ? 'text' : 'password'} 
                 id='password'
                 placeholder='...........' 
+                onChange={(e) => setPassword(e.target.value)}
                 className="rounded-lg focus:outline-none box-border w-[25rem] h-[3rem] text-justify text-bold flex flex-row items-start justify-start py-[0.75rem] px-[1rem] text-gray-01 border-[1px] border-solid border-gray-03" />    
             </div>
 
@@ -96,7 +154,7 @@ const Signup = () => {
                     </div>
                   </div>
                   <div className="rounded cursor-pointer bg-mediumblue w-full sm:w-[25rem] h-[3rem] flex items-center justify-center py-3 px-[0.75rem] box-border text-[1rem] text-white">
-                    <button className="relative leading-6 bg-transparent text-white cursor-pointer font-semibold inline-block w-[10rem] sm:w-auto">Sign up</button>
+                    <button type="submit" className="relative leading-6 bg-transparent text-white cursor-pointer font-semibold inline-block w-[10rem] sm:w-auto">Sign up</button>
                   </div>
                 </div>
 

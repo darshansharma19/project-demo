@@ -1,17 +1,82 @@
 'use client';
 
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { signInWithEmailAndPassword } from "firebase/auth";
+// import {firebaseApp} from "../../Config/firebase";
+import { auth } from "../../Config/firebase";
+import { FormSubmitHandler } from "react-hook-form";
+import { useRouter } from 'next/navigation';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
-    const [showPassword, setShowPassword] = useState(false);
 
+  const router = useRouter();  
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+    const [error, setError] = useState<string | null>(null);
+  const [user, loading] = useAuthState(auth);
+
+  const signIn = async (e: FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      console.log('Login Successful');
+
+      // Store user details in session
+      sessionStorage.setItem('user', JSON.stringify(user));
+      // Display success notification
+      toast.success('Login successful!', {
+        position: 'top-center',
+        autoClose: false, // 10 seconds
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        className: 'h-[3rem] w-[25rem] flex flex-row items-center justify-center py-[0.75rem] px-[1rem] text-center text-[1rem] text-white font-semibold-16-24 bg-mediumblue rounded-lg',
+      });
+
+
+      // Redirect to Dashboard
+      setTimeout(() => {
+        // Redirect to Dashboard
+        router.push('/components/Dashboard');
+      }, 1000);
+
+    }catch (error) {
+        const message =  'Invalid Credentials';
+        setError(message);
+        console.error(`Error: ${message}`);
+  
+        // Display error notification
+        toast.error(message, {
+          position: 'top-center',
+          autoClose: false, // 10 seconds
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,  
+          className: 'h-[3rem] w-[25rem] flex flex-row items-center justify-center py-[0.75rem] px-[1rem] text-center text-[1rem] text-white font-semibold-16-24 bg-red-500 rounded-lg',
+        });
+      }
+  };  
+  
 
     return (
-        
-                <form action="" className='[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] shrink-0 flex w-full overflow-y-hidden flex-col items-center justify-start gap-[1.5rem] text-center text-[1rem] text-black font-semibold-16-24'>
+        <main className="flex min-h-screen flex-col items-center p-15">
+            <ToastContainer /> 
+                <form onSubmit={(e) => signIn(e)} className='[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] shrink-0 flex w-full overflow-y-hidden flex-col items-center justify-start gap-[1.5rem] text-center text-[1rem] text-black font-semibold-16-24'>
 
                     {/* Email Input */}
 
@@ -20,6 +85,7 @@ const Login = () => {
                          <input type='email'
                           id='email'
                           placeholder='johndoe@gmail.com'
+                          onChange={(e) => setEmail(e.target.value)}
                           className="rounded-lg focus:outline-none box-border w-[25rem] h-[3rem] flex flex-row items-start justify-start py-[0.75rem] px-[1rem] text-gray-01 border-[1px] border-solid border-gray-03" />    
                     </div>
                         
@@ -33,6 +99,7 @@ const Login = () => {
                          <input type={showPassword ? 'text' : 'password'} 
                          id='password'
                          placeholder='...........' 
+                         onChange={(e) => setPassword(e.target.value)}
                          className="rounded-lg focus:outline-none box-border w-[25rem] h-[3rem] text-justify text-bold flex flex-row items-start justify-start py-[0.75rem] px-[1rem] text-gray-01 border-[1px] border-solid border-gray-03" />    
                     </div>
 
@@ -48,9 +115,9 @@ const Login = () => {
 
                         {/* Login Button */}
 
-                            <Link href='' className="relative rounded bg-mediumblue w-full h-[3rem] flex flex-row items-center justify-center py-[1rem] px-[0.75rem] box-border text-center text-[1rem] text-white font-semibold-16-24 cursor-pointer">
+                            <button type="submit"   className="relative rounded bg-mediumblue w-full h-[3rem] flex flex-row items-center justify-center py-[1rem] px-[0.75rem] box-border text-center text-[1rem] text-white font-semibold-16-24 cursor-pointer">
                                 <div className="relative leading-6 font-semibold w-40">Login</div>
-                            </Link >
+                            </button >
                     </div>
 
                     {/* Or */}
@@ -78,9 +145,9 @@ const Login = () => {
                     </button>
 
                     <Link className="relative no-underline text-[1rem] leading-[1.5rem] font-semibold cursor-pointer font-semibold-16-24 bg-transparent text-mediumblue text-center inline-block overflow-hidden text-ellipsis whitespace-nowrap w-[25rem] h-[1.5rem]" href='/Auth/Signup' >Create an account</Link>
-
+                                   
                 </form>
-        
+        </main>
     );
 }
 
