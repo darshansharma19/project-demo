@@ -1,4 +1,4 @@
-// Import necessary dependencies and types
+'use client';
 import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { loader as monacoLoader } from '@monaco-editor/react';
