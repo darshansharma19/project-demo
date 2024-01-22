@@ -1,30 +1,31 @@
 // Import the functions you need from the SDKs you need
-import firebase, { initializeApp } from "firebase/app";
-import "firebase/analytics";
-import "firebase/auth";
+import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCh1ANkhamcy4nAuOAfQpjnbd08tzZ3m6g",
-  authDomain: "fir-dee89.firebaseapp.com",
-  projectId: "fir-dee89",
-  storageBucket: "fir-dee89.appspot.com",
-  messagingSenderId: "86897820550",
-  appId: "1:86897820550:web:405e34276c685b91f6a207",
-  measurementId: "G-WY5R5VVCS8"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN ,
+  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET ,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID ,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID ,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
-const Firebaseapp = firebase.initializeApp(firebaseConfig);
 
-const analytics = getAnalytics(Firebaseapp);
+const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(Firebaseapp);
+const auth = getAuth(app);
 
+const db = getFirestore(app);
 
+const analytics = getAnalytics(app);
 
-export default {Firebaseapp, auth, analytics};
+export {auth, db, app, analytics};
 
 

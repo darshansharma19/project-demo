@@ -10,21 +10,21 @@ const Dashboard = () => {
   const router = useRouter();
 
   // Analytics data
-  const [analyticsData, setAnalyticsData] = useState(null);
+  // const [analyticsData, setAnalyticsData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('');
-        const data = await response.json();
-        setAnalyticsData(data);
-      } catch (error) {
-        console.error('Error fetching analytics data:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch('');
+  //       const data = await response.json();
+  //       setAnalyticsData(data);
+  //     } catch (error) {
+  //       console.error('Error fetching analytics data:', error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   // Session check
   useEffect(() => {
@@ -327,7 +327,7 @@ const Dashboard = () => {
                 <div className="relative leading-[1rem] text-[0.75rem] font-medium cursor-pointer">*Compare to last month</div>
               </div> 
               <div className="rounded-lg w-full bg-white dark:bg-gray-200 dark:text-white shadow-md shrink-0 flex flex-col items-start justify-start pt-4 px-6  pb-[2.13rem] gap-3 text-[1rem] text-secondary">
-              <div>
+              {/* <div>
                 {analyticsData ? (
                   // Render your analytics data here
                   <p>{JSON.stringify(analyticsData)}</p>
@@ -335,7 +335,7 @@ const Dashboard = () => {
                   // Loading state or error handling
                   <p>Loading...</p>
                 )}
-              </div>
+              </div> */}
               </div>
           </div>
 

@@ -16,11 +16,7 @@
 # production
 /build
 
-#firebase
-./app/Config
-./app/Config/firebase.ts
-/app/Config
-app/Config/
+.env
 
 # misc
 .DS_Store
