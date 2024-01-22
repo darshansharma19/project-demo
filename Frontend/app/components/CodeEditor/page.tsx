@@ -1,47 +1,47 @@
-'use client';
-
+// Import necessary dependencies and types
 import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { loader as monacoLoader } from '@monaco-editor/react';
 
-const MonacoEditor = dynamic(() => import('@monaco-editor/react'), { ssr: false });
-
+// Import MonacoEditorProps interface
 interface MonacoEditorProps {
     language: string;
     value: string;
     onChange: (value: string) => void;
     darkMode?: boolean;
     background?: string;
-};
+}
 
+// Import MonacoEditor dynamically
+const MonacoEditor = dynamic(() => import('@monaco-editor/react'), { ssr: false });
+
+// Define MyMonacoEditor functional component
 const MyMonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange, darkMode, background }) => {
     useEffect(() => {
         monacoLoader.init().then(monaco => {
-          const themeName = darkMode ? 'myDarkTheme' : 'myLightTheme';
-    
-          monaco.editor.defineTheme(themeName, {
-            base: darkMode ? 'vs-dark' : 'vs',
-            inherit: true,
-            rules: [],
-            colors: {
-                'editor.background': background || darkMode ? '#c88aff' : '#4500d8',
-               
-            },
-          });
-    
-          monaco.editor.setTheme(themeName);
+            const themeName = darkMode ? 'myDarkTheme' : 'myLightTheme';
+
+            monaco.editor.defineTheme(themeName, {
+                base: darkMode ? 'vs-dark' : 'vs-dark',
+                inherit: true,
+                rules: [],
+                colors: {
+                    'editor.background': background || (darkMode ? '#c88aff' : '#ffffff'),
+                },
+            });
+
+            monaco.editor.setTheme(themeName);
         });
-      }, [darkMode]);
+    }, [darkMode, background]);
 
     return (
         <div className="">
             <MonacoEditor
                 height="200px"
-                width="w-full"
+                width="100%" // Adjusted width value
                 language={language}
                 value={value}
-                onChange={onChange as any}
-                theme='vs-dark'
+                theme='vs-dark'// Adjusted theme value
             />
         </div>
     );
