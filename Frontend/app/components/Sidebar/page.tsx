@@ -82,7 +82,7 @@ const handleIsActive = (route: string) => {
         { name: 'Notifications', icon: '/assets/Vector.svg' },
         {
             name: "Settings",
-            icon: "/assets/settings.svg",
+            icon: "/assets/Settings.svg",
             options: [
               { name: "Integrations", icon: '/assets/carbon_ibm-cloud-pak-integration.svg'},
               { name: "Custom Code", icon: '/assets/mdi_code.svg'},
