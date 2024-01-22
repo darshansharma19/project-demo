@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import MonacoEditor from 'react-monaco-editor';
 import Sidebar from '../Sidebar/page';
 import Header from '../Header/page';
-import MyMonacoEditor from '../CodeEditor/page';
+import MyMonacoEditor from '../CodeEditor/MyMonacoEditor';
 
 
 
