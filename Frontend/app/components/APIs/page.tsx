@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../Sidebar/page';
 import Header from '../Header/page';
-import Modal from '../Modal/page';
+import Modal from '../Modal/Modal';
 
 
 
