@@ -122,7 +122,7 @@ const handleIsActive = (route: string) => {
             <div className="relative   w-48 flex flex-col items-center justify-start mx-7 py-12 gap-y-10 text-center text-[1.25rem] font-playfair-display ">
                 <div className="relative w-full flex flex-row gap-2  items-center justify-start">
                     <div className="flex items-center">
-                        <Image src="/assets/logo.svg" width={40} height={40} alt="logo" />
+                        <Image src="/assets/tempImageR5opcn8.png" width={40} height={40} alt="logo" />
                     </div>
                     <i className="relative tracking-[0.08em] leading-8  inline-block font-semibold whitespace-pre-wrap">
                         Flavor Trail

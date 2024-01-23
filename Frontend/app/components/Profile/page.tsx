@@ -10,16 +10,16 @@ const Profile = () => {
         <div className="w-1/4 min-h-screen flex flex-col justify-between">
           <Sidebar />
         </div>
-        <div className="w-full bg-special-bg px-6 py-8 flex flex-col justify-between">
+        <div className="w-full bg-special-bg dark:bg-black-dark dark:text-white px-6 py-8 flex flex-col justify-between">
           <div className=""><Header/></div>
           <div className='m-0 py-8 flex flex-col gap-6 h-7 font-bold'>Profile </div>
-          <div className="relative rounded-[10px] flex flex-row bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] w-full h-[51.13rem]" >     
+          <div className="relative rounded-[10px] flex flex-row bg-white dark:bg-gray-200 dark:text-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] w-full h-[51.13rem]" >     
   {/* Profile Form */}
                 <div className="flex p-8 w-1/2 flex-col">
-                 <Link href='' className="flex bg-white no-underline font-bold  font-segoe-ui text-tertiary text-left flex-row gap-0 items-start">  
+                 <Link href='' className="flex no-underline font-bold  font-segoe-ui text-tertiary text-left flex-row gap-0 items-start">  
                   <img className="relative w-5 h-5 object-contain cursor-pointer" alt="" src="/assets/chevron-down.svg"  /> User Profile 
                  </Link >  
-                 <div className="relative box-border my-7  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue" />                  
+                 <div className="relative box-border my-7  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue dark:border-mediumpurple" />                  
                  <img className="relative rounded-[50%] mx-2 w-24 h-[6.25rem] object-cover" alt="" src="/assets/Ellipse-1.svg" />
                   {/* Profile Form */}
                   <form action="" className="my-8 mx-2 w-80">
@@ -67,7 +67,7 @@ const Profile = () => {
                         id="button"
                         type="button"
                         aria-label="Update Savings"
-                        className="rounded-lg focus:outline-none w-40 box-border bg-white h-11 flex items-center justify-center  px-4 text-mediumblue border border-solid border-mediumblue"
+                        className="rounded-lg focus:outline-none w-40 box-border bg-white dark:bg-mediumpurple dark:text-white h-11 flex items-center justify-center  px-4 text-mediumblue border border-solid border-mediumblue"
                       >
                         Update Savings
                       </button>
@@ -78,14 +78,14 @@ const Profile = () => {
                 </div>
                       {/* Details */}
                 <div className="flex p-8 w-1/2 flex-col">
-                 <b className="flex bg-white pl-2 font-bold flex-row gap-0 leading-7 font-segoe-ui text-tertiary text-left items-start">   
+                 <b className="flex  pl-2 font-bold flex-row gap-0 leading-7 font-segoe-ui text-tertiary text-left items-start">   
                   History and Recent Bookings
                  </b>  
-                 <div className="relative box-border my-5  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue" />
+                 <div className="relative box-border my-5  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue dark:border-mediumpurple" />
                 <div className="relative flex flex-row gap-7 w-full h-[6.19rem] text-left text-[0.75rem] text-tertiary font-segoe-ui">
                   <div className="flex flex-col pl-2 gap-1 w-2/3">
                     <b className="relative text-[0.88rem] leading-6 font-segoe-ui text-tertiary text-left">Sea Grill of Merrick Park</b>
-                    <div className="relative text-[0.75rem] leading-5 font-segoe-ui text-mediumblue text-left">Reserved</div>
+                    <div className="relative text-[0.75rem] leading-5 font-segoe-ui text-mediumblue dark:text-mediumpurple text-left">Reserved</div>
                     <div className="relative w-full h-[1.25rem] text-left text-[0.75rem] text-tertiary font-segoe-ui">
                       <img className="absolute top-[0rem] left-[0rem] w-[1.25rem] h-[1.25rem]" alt="" src="/assets/material-symbols_date-range.svg" />
                       <b className="absolute top-[0.06rem] left-[2.19rem]">17 December 2022 | 12:15 PM</b>
@@ -101,7 +101,7 @@ const Profile = () => {
                     <b className="relative text-[0.75rem] font-segoe-ui text-tertiary text-right">Saved : $2</b>
                   </div>  
                 </div>
-                <div className="relative box-border my-5  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue" />
+                <div className="relative box-border my-5  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue dark:border-mediumpurple" />
                 <div className="relative flex flex-row gap-7 w-full h-[6.19rem] text-left text-[0.75rem] text-tertiary font-segoe-ui">
                   <div className="flex flex-col pl-2 gap-1 w-2/3">
                     <b className="relative text-[0.88rem] leading-6 font-segoe-ui text-tertiary text-left">Sea Grill North Miami Beach</b>
@@ -121,11 +121,11 @@ const Profile = () => {
                     <b className="relative text-[0.75rem] font-segoe-ui text-tertiary text-right">Saved : $0</b>
                   </div>  
                 </div>
-                <div className="relative box-border my-5  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue" />
+                <div className="relative box-border my-5  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue dark:border-mediumpurple" />
                 <div className="relative flex flex-row gap-7 w-full h-[6.19rem] text-left text-[0.75rem] text-tertiary font-segoe-ui">
                   <div className="flex flex-col pl-2 gap-1 w-2/3">
                     <b className="relative text-[0.88rem] leading-6 font-segoe-ui text-tertiary text-left">Villagio Restaurant and Bar</b>
-                    <div className="relative text-[0.75rem] leading-5 font-segoe-ui text-mediumblue text-left">Completed</div>
+                    <div className="relative text-[0.75rem] leading-5 font-segoe-ui text-mediumblue dark:text-mediumpurple text-left">Completed</div>
                     <div className="relative w-full h-[1.25rem] text-left text-[0.75rem] text-tertiary font-segoe-ui">
                       <img className="absolute top-[0rem] left-[0rem] w-[1.25rem] h-[1.25rem]" alt="" src="/assets/material-symbols_date-range.svg" />
                       <b className="absolute top-[0.06rem] left-[2.19rem]">17 December 2022 | 12:15 PM</b>
@@ -141,11 +141,11 @@ const Profile = () => {
                     <b className="relative text-[0.75rem] font-segoe-ui text-tertiary text-right">Saved : $2</b>
                   </div>  
                 </div>
-                <div className="relative box-border my-5  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue" />
+                <div className="relative box-border my-5  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue dark:border-mediumpurple" />
                 <div className="relative flex flex-row gap-7 w-full h-[6.19rem] text-left text-[0.75rem] text-tertiary font-segoe-ui">
                   <div className="flex flex-col pl-2 gap-1 w-2/3">
                     <b className="relative text-[0.88rem] leading-6 font-segoe-ui text-tertiary text-left">Villagio Restaurant and Bar</b>
-                    <div className="relative text-[0.75rem] leading-5 font-segoe-ui text-mediumblue text-left">Completed</div>
+                    <div className="relative text-[0.75rem] leading-5 font-segoe-ui text-mediumblue dark:text-mediumpurple text-left">Completed</div>
                     <div className="relative w-full h-[1.25rem] text-left text-[0.75rem] text-tertiary font-segoe-ui">
                       <img className="absolute top-[0rem] left-[0rem] w-[1.25rem] h-[1.25rem]" alt="" src="/assets/material-symbols_date-range.svg" />
                       <b className="absolute top-[0.06rem] left-[2.19rem]">17 December 2022 | 12:15 PM</b>
@@ -161,10 +161,10 @@ const Profile = () => {
                     <b className="relative text-[0.75rem] font-segoe-ui text-tertiary text-right">Saved : $2</b>
                   </div>  
                 </div>
-                <div className="relative box-border my-5  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue" />
+                <div className="relative box-border my-5  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue dark:border-mediumpurple" />
                 
                 <Link href='' className="relative w-full h-[2.5rem] text-center text-[1rem] text-white font-segoe-ui">
-                  <div className="absolute top-[0rem] left-[0rem] rounded bg-mediumblue w-96 h-[2.5rem]" />
+                  <div className="absolute top-[0rem] left-[0rem] rounded bg-mediumblue dark:bg-mediumpurple w-96 h-[2.5rem]" />
                   <b className="absolute top-[0.5rem] left-[0.11rem] leading-[1.5rem] inline-block w-[400px]">Save/Update Details</b>
                 </Link >
               </div> 

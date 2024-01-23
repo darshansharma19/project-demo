@@ -42,7 +42,7 @@ const Header = () => {
         />
         <div className="absolute p-1 top-0 right-0 flex items-center justify-center w-12 h-full lg:h-auto rounded-full cursor-pointer">
           <Image
-            src="/assets/Search.svg"
+            src="/assets/search.svg"
             width={24}
             height={24}
             alt="Search"

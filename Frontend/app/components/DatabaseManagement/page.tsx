@@ -26,16 +26,16 @@ const [page, setPage] = useState<
         <div className="w-1/4 min-h-screen flex flex-col justify-between">
           <Sidebar />
         </div>
-        <div className="w-full bg-special-bg min-h-screen px-6 py-6 flex flex-col">
+        <div className="w-full bg-special-bg dark:bg-black-dark dark:text-white min-h-screen px-6 py-6 flex flex-col">
           <div className=""><Header/></div>
-          <div className='m-0  py-8 h-7 font-bold'>Database Management- user</div>
-        <div className='relative rounded-[10px] flex flex-row bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] w-full h-auto'>
+          <div className='m-0  py-8 h-7 font-bold'>Database Management</div>
+        <div className='relative rounded-[10px] flex flex-row bg-white dark:bg-gray-200 dark:text-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] w-full h-auto'>
             <div className="overflow-hidden w-1/4 p-2 h-full flex flex-col border-black">
               <div className="w-full justify-center flex flex-row gap-2 ">
                 
                   {/* <!-- Button 1 --> */}
 
-                  <button className="bg-mediumblue hover:bg-blue-700 text-white font-bold py-2 px-4 h-[36px] w-[43px] rounded-[5px] flex items-center">
+                  <button className="bg-mediumblue dark:bg-mediumpurple hover:bg-blue-700 dark:hover:bg-mediumpurple text-white font-bold py-2 px-4 h-[36px] w-[43px] rounded-[5px] flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -52,7 +52,7 @@ const [page, setPage] = useState<
 
                   {/* <!-- Button 2 --> */}
 
-                  <button className="bg-mediumblue hover:bg-blue-700 text-white font-bold h-[36px] w-[43px] py-2 px-4 rounded-[5px] flex items-center">
+                  <button className="bg-mediumblue dark:bg-mediumpurple hover:bg-blue-700 dark:hover:bg-mediumpurple text-white font-bold h-[36px] w-[43px] py-2 px-4 rounded-[5px] flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -69,7 +69,7 @@ const [page, setPage] = useState<
 
                   {/* <!-- Button 3 --> */}
 
-                  <button className="bg-mediumblue hover:bg-blue-700 text-white h-[36px] w-[87px] font-bold py-2 px-4 rounded-[5px] flex items-center">
+                  <button className="bg-mediumblue dark:bg-mediumpurple hover:bg-blue-700 dark:hover:bg-mediumpurple text-white h-[36px] w-[87px] font-bold py-2 px-4 rounded-[5px] flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -87,7 +87,7 @@ const [page, setPage] = useState<
 
                   {/* <!-- Button 4 --> */}
 
-                  <button className="bg-mediumblue hover:bg-blue-700 text-white h-[36px] w-[43px] font-bold py-2 px-4 rounded-[5px] flex items-center">
+                  <button className="bg-mediumblue dark:bg-mediumpurple hover:bg-blue-700 dark:hover:bg-mediumpurple text-white h-[36px] w-[43px] font-bold py-2 px-4 rounded-[5px] flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -104,9 +104,9 @@ const [page, setPage] = useState<
                 
               </div>
 
-              <div className="flex flex-col justify-content items-center">
+              <div className="flex flex-col justify-center items-center mt-6">
                 <button
-                  className="w-[157px] h-[36px] my-2 mx-6 flex-shrink-0 rounded-[5px] hover:bg-mediumblue text-black
+                  className="w-[157px] h-[36px] my-2 mx-6 flex-shrink-0 rounded-[5px] dark:bg-black-dark dark:text-white dark:hover:bg-mediumpurple hover:bg-mediumblue text-black
               hover:text-white text-5xl font-semibold flex items-center justify-center"
                   onClick={() => setPage("Users")}
                 >
@@ -115,7 +115,7 @@ const [page, setPage] = useState<
                 </button>
 
                 <button
-                  className="w-[157px] h-[36px] my-2 mx-6 flex-shrink-0 rounded-[5px] hover:bg-mediumblue text-black
+                  className="w-[157px] h-[36px] my-2 mx-6 flex-shrink-0 rounded-[5px] dark:bg-black-dark dark:text-white dark:hover:bg-mediumpurple hover:bg-mediumblue text-black
               hover:text-white text-5xl font-semibold  flex items-center justify-center"
                   onClick={() => setPage("Restaurant Owner")}
                 >
@@ -124,7 +124,7 @@ const [page, setPage] = useState<
                 </button>
 
                 <button
-                  className="w-[157px] h-[36px] my-2 mx-6 flex-shrink-0 rounded-[5px] hover:bg-mediumblue text-black
+                  className="w-[157px] h-[36px] my-2 mx-6 flex-shrink-0 rounded-[5px] dark:bg-black-dark dark:text-white dark:hover:bg-mediumpurple hover:bg-mediumblue text-black
               hover:text-white text-5xl font-semibold  flex items-center justify-center"
                   onClick={() => setPage("Influencers")}
                 >

@@ -45,7 +45,7 @@ const Users = () => {
       <div className="border-box max-w-full flex justify-between items-center">
         <div className="text-[22px] font-[700]">Users</div>
         <div className="flex min-w-[50%] flex-row justify-end gap-[10px] items-center">
-          <button className="p-2 h-[36px] flex flex-row justify-around rounded-[5px] items-center bg-mediumblue text-white">
+          <button className="p-2 h-[36px] flex flex-row justify-around rounded-[5px] items-center bg-mediumblue dark:bg-mediumpurple text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -68,7 +68,7 @@ const Users = () => {
             </svg>
             <span className="ml-2 text-[14px] font-[500]">Manage content</span>
           </button>
-          <button className="flex items-center rounded-[5px] justify-center p-2 h-[36px] bg-mediumblue text-white">
+          <button className="flex items-center rounded-[5px] justify-center p-2 h-[36px] bg-mediumblue dark:bg-mediumpurple text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -128,8 +128,8 @@ const Users = () => {
           ))}
         </tbody>
       </table>
-      <div className="flex flex-row justify-between items-center px-12 text-[16px] font-[500]">
-        <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-row dark:bg-black justify-between items-center px-12 text-[16px] font-[500]">
+        <div className="flex flex-row dark:bg-black dark:text-white justify-between items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="17"
@@ -144,6 +144,7 @@ const Users = () => {
           </svg>
           <input
             placeholder="New Field name......."
+            className='dark:bg-black dark:text-white focus:outline-none'
             value={newField.fieldName}
             onChange={(e) =>
               setNewField((prev) => {
@@ -155,6 +156,7 @@ const Users = () => {
         <div>
           <input
             placeholder="Data Type"
+            className='dark:bg-black dark:text-white focus:outline-none'
             value={newField.dataType}
             onChange={(e) =>
               setNewField((prev) => {
@@ -164,7 +166,7 @@ const Users = () => {
           />
         </div>
         <div>
-          <input placeholder="Is List" />
+          <input placeholder="Is List"  className='dark:bg-black dark:text-white focus:outline-none'/>
         </div>
         <div>
           <span className="cursor-pointer" onClick={() => handleAdd()}>

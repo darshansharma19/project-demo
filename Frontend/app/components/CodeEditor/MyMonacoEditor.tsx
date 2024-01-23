@@ -38,10 +38,16 @@ const MyMonacoEditor: React.FC<MonacoEditorProps> = ({ language, value, onChange
         <div className="">
             <MonacoEditor
                 height="200px"
-                width="100%" // Adjusted width value
+                width="w-full" // Adjusted width value
                 language={language}
                 value={value}
                 theme='vs-dark'// Adjusted theme value
+                options={{
+                    scrollbar: {
+                        vertical: 'hidden',
+                        horizontal: 'hidden'
+                    }
+                }}     
             />
         </div>
     );

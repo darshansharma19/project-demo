@@ -5,15 +5,16 @@ import Header from '../Header/page';
 
 const UserNpermissions = () => {
     return ( 
-    <div className="flex min-h-screen">
-        <div className="w-1/4 min-h-screen flex flex-col justify-between">
-          <Sidebar />
-        </div>
-        <div className="w-3/4 min-h-screen px-12 py-8 flex flex-col justify-between">
-          <div className=""><Header/></div>
-          <div className='m-0 px-2 py-12 h-full font-bold'>User and Permissions</div>
-        </div>
+      <div className="flex w-full min-h-screen">
+      <div className="w-1/4 min-h-screen flex flex-col justify-between">
+        <Sidebar />
       </div>
+      <div className="w-full bg-special-bg dark:bg-black-dark dark:text-white min-h-screen px-6 py-8 flex flex-col ">
+        <div className=""><Header/></div>
+        <div className='m-0  py-8 h-7 font-bold'>User and Permission</div>
+        
+      </div>
+    </div>
      );
 }
  

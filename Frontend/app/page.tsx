@@ -34,7 +34,7 @@ export default function Home() {
                   height={48}
                   width={48}
                   className="mx-auto w-auto relative justify-center align-middle object-cover rounded-md"
-                  src="/assets/logo.svg"
+                  src='/assets/tempImageR5opcn8.png'
                   alt="Logo"
                 />   Flavor Trail
                 </h2>
