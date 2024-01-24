@@ -30,6 +30,7 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
+      console.log(user);
       console.log('Login Successful');
 
       // Store user details in session

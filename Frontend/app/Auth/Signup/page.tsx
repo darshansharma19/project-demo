@@ -26,6 +26,7 @@ const Signup = () => {
         // Signed in..
         const user = userCredentials.user;
         updateProfile(user, { displayName: name });
+        console.log(user);
         console.log("Signup Successful");
 
          // Display success notification
