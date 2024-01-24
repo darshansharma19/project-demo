@@ -39,7 +39,7 @@ const Customcode = () => {
         </div>
         <div className="w-full bg-special-bg dark:bg-black-dark dark:text-white min-h-screen px-6 py-8 flex flex-col ">
           <div className=""><Header/></div>
-          <div className='m-0  py-8 h-7 font-bold'>Custom codes</div>
+          <div className="relative text-[2.25rem] py-6 font-semibold font-geist">Custom Code</div>
           <div className='relative   w-full rounded-[10px] flex flex-col bg-white dark:bg-gray-200 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)]  h-auto'>
 
             <div className='p-6 flex flex-col items-start justify-start gap-2'>

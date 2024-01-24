@@ -11,7 +11,7 @@ const UserNpermissions = () => {
       </div>
       <div className="w-full bg-special-bg dark:bg-black-dark dark:text-white min-h-screen px-6 py-8 flex flex-col ">
         <div className=""><Header/></div>
-        <div className='m-0  py-8 h-7 font-bold'>User and Permission</div>
+        <div className="relative text-[2.25rem] py-6 font-semibold font-geist">User and Permission</div>
         
       </div>
     </div>

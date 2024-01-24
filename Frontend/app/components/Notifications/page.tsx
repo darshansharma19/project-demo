@@ -135,11 +135,8 @@ const Notifications = () => {
       </div>
       <div className="w-full bg-special-bg dark:bg-black-dark dark:text-white px-8 py-8 flex flex-col justify-between">
           <div className=""><Header/></div>
-        <div className='m-0  py-12 flex flex-col gap-6 h-full font-bold'>
-          <div className="relative w-full flex flex-col items-start justify-start gap-2 text-left  text-text font-geist">
-            <div className="relative text-[1.38rem] font-semibold font-geist">Notifications</div>
-          </div>
-          
+          <div className="relative text-[2.25rem] py-6 font-semibold font-geist">Notifications</div>
+        <div className='m-0  py-6 flex flex-col gap-6 h-full font-bold'>
           <div className="flex flex-row flex-wrap gap-8">
               
           {notificationList.map((notification) => (

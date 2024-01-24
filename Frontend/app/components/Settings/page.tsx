@@ -12,7 +12,7 @@ const Setting = () => {
       </div>
       <div className="w-full bg-special-bg dark:bg-black-dark dark:text-white min-h-screen px-6 py-8 flex flex-col ">
         <div className=""><Header/></div>
-        <div className='m-0  py-8 h-7 font-bold'>Settings</div>
+        <div className="relative text-[2.25rem] py-6 font-semibold font-geist">Settings</div>
         <div className='flex flex-row flex-wrap gap-2'>
           <Link href='/components/Integrations'  className='relative no-underline flex flex-col cursor-pointer items-center justify-center  px-6 pb-6 rounded-lg bg-white dark:bg-gray-200 dark:text-white shadow-[0px_20px_25px_rgba(76,_103,_100,_0.1)] w-40 h-36'>
             <b className="relative text-[1rem] leading-6 capitalize font-bold-16-24 text-gray-02 ">Integrations</b>

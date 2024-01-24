@@ -13,7 +13,7 @@ const Integrations = () => {
                     <div className=""><Header/></div>
                     <div className='m-0  py-12 flex flex-col gap-6 h-full font-bold'>
                         <div className="relative w-full flex flex-col items-start justify-start gap-2 text-left text-4xl text-text font-geist">
-                            <div className="relative text-[2.25rem] font-semibold font-geist">Authentications</div>
+                        <div className="relative text-[2.25rem] py-6 font-semibold font-geist">Authentications</div>
                         </div>
                     
                         <div className="flex flex-row flex-wrap gap-8">

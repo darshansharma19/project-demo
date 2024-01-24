@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import DarkModeToggle from '../DarkModeToggle/page';
 import { useRouter, usePathname } from 'next/navigation';
@@ -11,12 +11,16 @@ import { app, auth } from "../../Config/firebase";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useTheme } from "../../context/ThemeContext";
 
 
 const Sidebar = () => {
   
     const pathname = usePathname();
+
+    const { theme,  } = useTheme();
+    useEffect(() => {
+    }, [theme]);
 
     const [activeButton, setActiveButton] = useState('');
 
@@ -122,7 +126,7 @@ const handleIsActive = (route: string) => {
             <div className="relative   w-48 flex flex-col items-center justify-start mx-7 py-12 gap-y-10 text-center text-[1.25rem] font-playfair-display ">
                 <div className="relative w-full flex flex-row gap-2  items-center justify-start">
                     <div className="flex items-center">
-                        <Image src="/assets/tempImageR5opcn8.png" width={40} height={40} alt="logo" />
+                        <img src="/assets/tempImageR5opcn8.png" width={40} height={40} alt="logo" />
                     </div>
                     <i className="relative tracking-[0.08em] leading-8  inline-block font-semibold whitespace-pre-wrap">
                         Flavor Trail
@@ -134,7 +138,7 @@ const handleIsActive = (route: string) => {
                         className={`rounded  bg-${handleIsActive(buttonRoutes[index]) === 'active' ? 'mediumblue dark:bg-mediumpurple' : 'white dark:bg-gray-300'}  font-${handleIsActive(buttonRoutes[index]) === 'active' ? 'semibold' : 'regular'} no-underline w-full flex cursor-pointer items-center justify-start pl-3 py-3 gap-3 text-${activeButton === button.name ? 'white' : 'black '} `}
                         onClick={() => handleClick(button.name)}
                         >
-                        <Image
+                        <img
                             src={handleIsActive(buttonRoutes[index]) === 'active' ? button.icon.replace('.svg', '_white.svg') : button.icon}
                             width={24}
                             height={24}
@@ -154,19 +158,33 @@ const handleIsActive = (route: string) => {
             <div key={index}>
               <Link
                 href={buttonRoutes[index]}key={index}
-                className={`rounded  bg-${handleIsActive(buttonRoutes[index]) === 'active' ? 'mediumblue dark:bg-mediumpurple' : 'white dark:bg-gray-300'}  font-${handleIsActive(buttonRoutes[index]) === 'active' ? 'semibold' : 'regular'} no-underline w-full flex cursor-pointer items-center justify-start pl-3 py-3 gap-3 text-${activeButton === button.name ? 'white' : 'black '} `}
+                className={`rounded  bg-${
+                  handleIsActive(buttonRoutes[index]) === "active"
+                    ? "mediumblue dark:bg-mediumpurple"
+                    : "white dark:bg-gray-300"
+                }  font-${
+                  handleIsActive(buttonRoutes[index]) === "active"
+                    ? "semibold"
+                    : "regular"
+                } no-underline w-full flex cursor-pointer items-center justify-start pl-3 py-3 gap-3 text-${
+                  activeButton === button.name ? "white" : "black "
+                } `}
                 onClick={() => handleClick(button.name)}
                 >
-                <Image
+                <img
                   src={handleIsActive(buttonRoutes[index]) === 'active' ? button.icon.replace('.svg', '_white.svg') : button.icon}
                   width={24}
                   height={24}
                   alt={button.name.toLowerCase()}
-                  className="relative"
+                  className={`relative ${theme==="dark"?"invert mix-blend-lighten":""}`}
                 />
                 <span
-                  className={handleIsActive(buttonRoutes[index]) === 'active' ? 'text-white dark:text-white' : 'text-black dark:text-white'}>
-                  {button.name}
+                  className={
+                    handleIsActive(buttonRoutes[index]) === "active"
+                      ? "text-white dark:text-white"
+                      : "text-black dark:text-white"
+                  }>
+                    {button.name}
                 </span>
               </Link>
               {button.name === "Settings" ? (
@@ -178,7 +196,7 @@ const handleIsActive = (route: string) => {
                   {button.options?.map((option, idx) => {
                     return (
                       <Link href={optionRoutes[idx]} key={idx} onClick={()=> handleClick(option.name)}  className=" w-full flex items-center justify-start  gap-3 flex-shrink-0 no-underline m-2 p-1  text-md dark:hover:bg-mediumpurple hover:bg-mediumblue text-black dark:text-white hover:text-white cursor-pointer rounded-md" >
-                        <Image
+                        <img
                           src={option.icon}
                           width={24}
                           height={24}
