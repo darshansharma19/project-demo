@@ -69,7 +69,7 @@ const Influencers = () => {
                 src={profile.profile_img}
               />
               <div className="ml-4 flex flex-col gap-0 p-1">
-                <div className="relative text-[1.08rem] font-inter mb-1 dark:text-white text-left inline-block">
+                <div className="relative text-[1.08rem] font-inter mb-1 dark:text-white text-left inline-block object-contain">
                   {profile.name}
                 </div>
                 {/* Add other details here */}
