@@ -91,7 +91,7 @@ const TiktokInfluencer = () => {
           </>
         ) : (
           <>
-            <div className="relative text-[1.08rem] font-inter mb-2  text-left inline-block w-[8.61rem]">
+            <div className="relative text-[1.08rem] font-inter mb-2  whitespace-nowrap hover:whitespace-normal  text-left inline-block w-[8.61rem]">
             {profile.name}
             </div>
             <img

@@ -50,7 +50,7 @@ const Influencers = () => {
     return data.map((profile: any, index: number) => (
       <div
         key={index}
-        className="relative rounded-lg bg-background-light dark:bg-gray-200 dark:text-white box-border w-[274px] h-auto object-contain overflow-hidden flex flex-col  justify-start p-5 text-left text-[1.13rem] text-text font-inter  shadow-lg  dark:shadow-gray-800 "
+        className="relative rounded-lg bg-background-light dark:bg-gray-200 dark:text-white box-border w-[300px] h-auto object-contain overflow-hidden flex flex-col  justify-start p-5 text-left text-[1.13rem] text-text font-inter  shadow-lg  dark:shadow-gray-800 "
       >
         {selectedCardIndex === index ? (
           <>
@@ -69,7 +69,7 @@ const Influencers = () => {
                 src={profile.profile_img}
               />
               <div className="ml-4 flex flex-col gap-0 p-1">
-                <div className="relative text-[1.08rem] font-inter mb-1 dark:text-white text-left inline-block object-contain">
+                <div className="relative text-[1.08rem] font-inter mb-1  dark:text-white text-left inline-block object-contain">
                   {profile.name}
                 </div>
                 {/* Add other details here */}
@@ -92,20 +92,20 @@ const Influencers = () => {
           </>
         ) : (
           <>
-            <div className="relative text-[1.08rem] font-inter mb-2  text-left inline-block w-[8.61rem]">
-            {profile.name}
-            </div>
             <img
               onClick={() => handleCardClick(index)}
-              className="relative rounded-[12.39px] w-full h-[11.12rem] object-cover cursor-pointer"
+              className="relative rounded-[12.39px] w-full h-[11.12rem] object-fill cursor-pointer"
               alt="image"
               src={profile.profile_img}
             />
-            <div className="flex flex-row mt-2 justify-center items-end gap-8">
+            <div className="relative text-[1.08rem] pt-4 whitespace-nowrap hover:whitespace-normal font-inter mb-2  text-left inline-block w-[8.61rem]">
+              {profile.name}
+            </div>
+            <div className="flex flex-row mt-2 justify-start items-end gap-8">
             {/* {profile.socialIcons.map((icon: string, iconIndex: number) => ( */}
                 <div
                   // key={iconIndex}
-                  className="relative cursor-pointer rounded-[6.2px] w-8 h-8 bg-mediumblue shadow-[0px_4px_5px_rgba(0,_0,_0,_0.25)] box-border border-[0.6px] border-solid border-mediumblue"
+                  className="relative cursor-pointer rounded-[6.2px] w-8 h-8 bg-mediumblue dark:bg-mediumpurple shadow-[0px_4px_5px_rgba(0,_0,_0,_0.25)] box-border border-[0.6px] border-solid border-mediumblue"
                 >
                   <img
                     className="relative py-1 w-full h-[1.55rem] overflow-hidden object-cover"
@@ -115,7 +115,7 @@ const Influencers = () => {
                   />
                 </div>
               {/* ))} */}
-              <div
+              {/* <div
                   // key={iconIndex}
                   className="relative cursor-pointer rounded-[6.2px] w-8 h-8 bg-mediumblue shadow-[0px_4px_5px_rgba(0,_0,_0,_0.25)] box-border border-[0.6px] border-solid border-mediumblue"
                 >
@@ -125,8 +125,11 @@ const Influencers = () => {
                     // src={icon}
                     src='/assets/messages2.svg'
                   />
+                </div> */}
+                 <div className="relative text-[1.08rem] font-inter pb-1 dark:text-white text-left inline-block">
+                  {profile.followers}
                 </div>
-                <div
+                {/* <div
                   // key={iconIndex}
                   className="relative cursor-pointer rounded-[6.2px] w-8 h-8 bg-mediumblue shadow-[0px_4px_5px_rgba(0,_0,_0,_0.25)] box-border border-[0.6px] border-solid border-mediumblue"
                 >
@@ -137,7 +140,7 @@ const Influencers = () => {
                     onClick={() => handleCardClick(index)}
                     src='/assets/profile.svg'
                   />
-                </div>
+                </div> */}
             </div>
           </>
         )}

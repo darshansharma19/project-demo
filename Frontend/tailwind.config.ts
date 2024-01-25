@@ -53,7 +53,7 @@ const config: Config = {
               "deeppink": "#e90090",
               "white": "#fff",
               "black1": "#000",
-              "mediumblue": "#4500d8",
+              "mediumblue": "#3B53A4",
               "gray-04": "#e4e7eb",
               "gray-02": "#4b5768",
               "special-main-bg": "#f4f5f7",
@@ -72,7 +72,7 @@ const config: Config = {
             "background-light": "#fff",
             "border": "#d4d4d8",
             "primary-light": "#bfdbfe",
-            "mediumpurple": "#c88aff",
+            "mediumpurple": "#3B53A4",
             
             "gray-05": "#e8e8e8",
             "secondary": "#525256",

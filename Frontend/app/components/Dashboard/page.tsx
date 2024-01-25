@@ -41,7 +41,7 @@ const Dashboard = () => {
   const renderContent = () => {
     switch (activeOption) {
       case 'Influencers':
-        return <div><InfluencersTable /></div>;
+        return <div className='w-full'><InfluencersTable /></div>;
       case 'Restaurants':
         return <div>Your Restaurants content here</div>;
       case 'Location':
@@ -270,14 +270,14 @@ const Dashboard = () => {
                   {/* <div className="relative text-[0.68rem] leading-[1.25rem] capitalize font-medium text-secondary dark:text-white text-right">Total app Downloads</div> */}
                 </div>
                 <div className="relative rounded-lg flex flex-row bg-mediumblue dark:bg-mediumpurple w-[265px]  h-[8.13rem]" >
-                          <div className="w-1/2 border-x border-white border-solid pr-2 flex flex-col">
+                          <div className="w-1/2 border-r border-white border-solid pr-2 flex flex-col">
                             <div className="flex flex-row gap-3 justify-center items-center">
                               <img className="w-full relative max-w-full overflow-hidden h-[3.13rem]" alt="" src="/assets/baseline-apple.svg" />
                               <div className="w-[5.13rem] relative text-[1.38rem] leading-[2rem] capitalize font-extrabold font-exbold-22-32 text-white text-left inline-block">20,000</div>
                             </div>
                             <div className="w-[7.94rem] relative text-[1.38rem] leading-[2rem] font-header-22-32 text-white text-center inline-block">ios app downloads</div>
                           </div>
-                          <div className="w-1/2 border-x border-white border-solid pt-2 flex flex-col">
+                          <div className="w-1/2 border-l border-white border-solid pt-2 flex flex-col">
                             <div className="flex flex-row gap-3 px-1 justify-center items-center">
                               <img className="w-full relative max-w-full overflow-hidden h-8" alt="" src="/assets/Vector-playstore.svg" />
                               <div className="w-[5.13rem] relative text-[1.38rem] leading-[2rem] capitalize font-extrabold font-exbold-22-32 text-white text-left inline-block">30,000</div>

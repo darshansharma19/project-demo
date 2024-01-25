@@ -176,7 +176,7 @@ const handleIsActive = (route: string) => {
                   width={24}
                   height={24}
                   alt={button.name.toLowerCase()}
-                  className={`relative ${theme==="dark"?"invert mix-blend-lighten":""}`}
+                  className={`relative ${theme==="dark"?"invert mix-blend-lighten":""} `}
                 />
                 <span
                   className={

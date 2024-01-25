@@ -29,12 +29,12 @@ const InfluencersTable: React.FC = () => {
   return (
         <div className="max-h-96 overflow-y-scroll border border-black dark:border-white border-solid">
             {data.map((profile: any, index: number) => (
-            <div key={index} className="flex flex-row   p-2">
-                <div className="w-1/4 ">{profile.name}</div>
-                <div className="w-1/4">{profile.rating || '*****'}</div>
-                <div className="w-1/4">{profile.followers}</div>
-                <div className="w-1/4">{profile.potential_reach}</div>
-            </div>
+            <table key={index} className="flex flex-row gap-2 p-2 justify-center items-center">
+                <tr className="w-1/4  overflow-hidden whitespace-nowrap hover:overflow-visible hover:whitespace-normal">{profile.name}</tr>
+                <tr className="w-1/4  ">{profile.rating || '*****'}</tr>
+                <tr className="w-1/4  ">{profile.followers}</tr>
+                <tr className="w-1/4  ">{profile.potential_reach}</tr>
+            </table>
             ))}
         </div>
     
