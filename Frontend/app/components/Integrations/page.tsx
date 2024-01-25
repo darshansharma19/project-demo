@@ -9,7 +9,7 @@ const Integrations = () => {
   const { theme,  } = useTheme();
   useEffect(() => {
   }, [theme]);
-  
+
   // to convert into a list view
 
   const [isListView, setIsListView] = React.useState(false);
@@ -113,7 +113,7 @@ const Integrations = () => {
                   </div>
                   <div className="relative rounded-full bg-background-light dark:bg-gray-200 shadow-lg box-border w-full h-auto object-contain overflow-hidden flex flex-row gap-16 items-start justify-start p-6  text-left text-[1.13rem] text-text font-inter ">
                       <div className="rounded-[409.72px] w-8 h-8" >
-                        <img className={`relative w-full h-[2rem] overflow-hidden object-cover ${theme==="dark"?"invert mix-blend-lighten":""}`} alt="" src="/assets/instagram.svg" />
+                        <img className={`relative w-full h-[2rem] overflow-hidden object-cover ${theme==="dark"?"invert mix-blend-lighten":""}`} alt="" src="/assets/Instagram.svg" />
                       </div>
                       <div className="self-stretch flex flex-row items-center justify-center gap-16">
                         <div className="w-[16.5rem] flex flex-row items-start justify-start">
@@ -229,7 +229,7 @@ const Integrations = () => {
                   <div className="relative  bg-background-light dark:bg-gray-200 shadow-lg box-border w-[264px] h-[189px] object-contain overflow-hidden flex flex-col items-start justify-start p-6  text-left text-[1.13rem] text-text font-inter ">
                     
                       <div className="rounded-[409.72px] w-8 h-8" >
-                      <img className="relative w-full h-[2rem] overflow-hidden object-cover" alt="" src="/assets/instagram.svg" />
+                      <img className="relative w-full h-[2rem] overflow-hidden object-cover" alt="" src="/assets/Instagram.svg" />
                       </div>
                       <div className="self-stretch flex flex-col items-start justify-start gap-[0.63rem]">
                         <div className="w-[16.5rem] flex flex-col items-start justify-start">
