@@ -91,15 +91,16 @@ const TiktokInfluencer = () => {
           </>
         ) : (
           <>
-            <div className="relative text-[1.08rem] font-inter mb-2  whitespace-nowrap hover:whitespace-normal  text-left inline-block w-[8.61rem]">
-            {profile.name}
-            </div>
+            
             <img
               onClick={() => handleCardClick(index)}
               className="relative rounded-[12.39px] w-full h-[11.12rem] object-cover cursor-pointer"
               alt="image"
               src={profile.profile_img}
             />
+            <div className="relative text-[1.08rem] font-inter mb-2 pt-4 whitespace-nowrap hover:whitespace-normal  text-left inline-block w-[8.61rem]">
+              {profile.name}
+            </div>
             <div className="flex flex-row mt-2 justify-center items-end gap-8">
             {/* {profile.socialIcons.map((icon: string, iconIndex: number) => ( */}
                 <div
