@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../Sidebar/page';
 import Header from '../Header/page';
 import { useTheme } from '../../context/ThemeContext';
@@ -21,6 +21,30 @@ const Mediaassets = () => {
 
   const storage = getStorage();
 
+  useEffect(() => {
+    const handleUpload = async () => {
+      if (file) {
+        try {
+          setUploading(true);
+
+          const storageRef = ref(storage, `uploads/${file.name}`);
+          await uploadBytes(storageRef, file);
+          console.log('File uploaded!', file.name);
+
+          const downloadURL = await getDownloadURL(storageRef);
+          setDownloadURL(downloadURL);
+
+          setUploading(false);
+        } catch (error) {
+          console.error('Error uploading file:', error);
+          setUploading(false);
+          // Handle error as needed
+        }
+      }
+    };
+
+    handleUpload();
+  }, [file, storage]);
 
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
@@ -29,22 +53,116 @@ const Mediaassets = () => {
     }
   };
 
+  // const handleUploadClick = async () => {
+  //   if (!file) {
+  //     console.error('No file selected!');
+  //     return;
+  //   }
+  
+  //   setUploading(true);
+  
+  //   const storageRef = ref(storage, `uploads/${file.name}`);
+  //   await uploadBytes(storageRef, file);
+  //     console.log('File uploaded!', file.name);
+
+  //   const downloadURL = await getDownloadURL(storageRef);
+  //   setDownloadURL(downloadURL);
+  
+  //   setUploading(false);
+  // };
+  
+
+  // // For Drag and Drop Functionality
+
+  const [isDragging, setIsDragging] = useState(false);
+
+  // const handleDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
+  //   e.preventDefault();
+  //   setIsDragging(true);
+  // };
+  
+  // const handleDragLeave = () => {
+  //   setIsDragging(false);
+  // };
+  
+  // const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
+  //   e.preventDefault();
+  //   setIsDragging(false);
+  
+  //   const droppedFiles = e.dataTransfer.files;
+  
+  //   if (droppedFiles.length > 0) {
+  //     const droppedFile = droppedFiles[0];
+  //     console.log('Dropped File:', droppedFile);
+  
+  //     // Set the file first
+  //     setFile(droppedFile);
+  
+  //     // Then initiate the upload
+  //     try {
+  //       await handleUploadClick();
+  //     } catch (error) {
+  //       console.error('Error uploading file:', error);
+  //       // Handle error as needed
+  //     }
+  //   }
+  // };
+
+  // After Changes
+
   const handleUploadClick = async () => {
     if (!file) {
       console.error('No file selected!');
       return;
     }
-
-    setUploading(true);
-
-    const storageRef = ref(storage, `uploads/${file.name}`);
-    await uploadBytes(storageRef, file);
-
-    const downloadURL = await getDownloadURL(storageRef);
-    setDownloadURL(downloadURL);
-
-    setUploading(false);
+  
+    try {
+      setUploading(true);
+  
+      const storageRef = ref(storage, `uploads/${file.name}`);
+      await uploadBytes(storageRef, file);
+      console.log('File uploaded!', file.name);
+  
+      const downloadURL = await getDownloadURL(storageRef);
+      setDownloadURL(downloadURL);
+  
+      setUploading(false);
+    } catch (error) {
+      console.error('Error uploading file:', error);
+      // Handle error as needed
+      setUploading(false);
+    }
   };
+  
+  // For Drag and Drop Functionality
+  
+  const handleDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+  
+  const handleDragLeave = () => {
+    setIsDragging(false);
+  };
+  
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+
+    const droppedFiles = e.dataTransfer.files;
+
+    if (droppedFiles.length > 0) {
+      const droppedFile = droppedFiles[0];
+      console.log('Dropped File:', droppedFile);
+
+      // Set the file
+      setFile(droppedFile);
+    }
+  };
+  
+  
+  
+
 
 
     return ( 
@@ -80,8 +198,16 @@ const Mediaassets = () => {
                 </div>
               </button>
             </div>
-            {downloadURL && (
-              <div className='flex flex-col pt-8 justify-center items-center'>
+            {/* // For Drag and Drop Functionality  */}
+
+              <div className={`flex flex-col pt-8 justify-center items-center ${
+                  isDragging ? 'border-dashed border-2 border-mediumblue dark:border-mediumpurple' : ''
+                }`}
+                onDragEnter={handleDragEnter}
+                onDragOver={(e) => e.preventDefault()}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+              >
                 {/* dark mode svg */}
                 <img className={`relative w-[418px] pb-4 h-[24.56rem] object-cover ${theme==="dark"?"invert mix-blend-lighten":""}`} alt="" src="/assets/tempImageo5kBYt1.png" />
                 <b className="relative text-[2.5rem] pb-4 tracking-[0.01em] font-inter text-text">Project Media</b>
@@ -94,7 +220,7 @@ const Mediaassets = () => {
                   <span className="font-medium">{` to add assets that you can use throught your project `}</span>
                 </div>
               </div>
-            )}
+            
           </div>
         </div>
       </div>
