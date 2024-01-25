@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../Config/firebase';
 import { useTheme } from "../../context/ThemeContext";
+import { useUser } from "../../context/UserContext";
 
 const Header = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -26,8 +27,10 @@ const Header = () => {
     }, 3000); // Clearing after 3 seconds (adjust as needed)
   };
 
- const [user] = useAuthState(auth);
-  const { displayName, photoURL } = user || {};
+//  const [user] = useAuthState(auth);
+//   const { displayName, photoURL } = user || {};
+
+const { user } = useUser();
 
   
 
@@ -59,7 +62,9 @@ const Header = () => {
               width={24}
               height={24}
               alt="bell"
-              className={`relative flex items-start overflow-hidden shrink-0 object-cover justify-start ${theme==="dark"?"invert mix-blend-lighten":""}`} />
+              className={`relative flex items-start overflow-hidden shrink-0 object-cover justify-start ${
+                theme === "dark" ? "invert mix-blend-lighten" : ""
+              }`} />
             {hasNotification && (
               <div className="absolute w-3 h-3 bg-green-500 rounded-full top-0 right-0 transform translate-x-1/2 -translate-y-1/2"></div>
             )}
@@ -68,15 +73,15 @@ const Header = () => {
         <div className="flex items-center justify-center w-full h-auto lg:h-full rounded-lg">
           <div className="flex items-center">
             <div className="mr-2">
-              <img
-                src={photoURL || '/assets/avatar.svg'}
+            <img
+                src={user?.photoURL || '/assets/avatar.svg'}
                 width={40}
                 height={40}
                 alt="User Avatar"
-                className={`rounded-full ${theme==="dark"?"invert mix-blend-lighten":""}`}
-              />
+                className={`rounded-full ${!user?.photoURL && theme === "dark" ? "invert mix-blend-lighten" : ""}`}
+            />
             </div>
-            <span>{displayName || 'user name'}</span>
+            <span>{user?.displayName || 'user name'}</span>
           </div>
         </div>
       </div>

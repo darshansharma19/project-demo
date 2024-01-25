@@ -7,15 +7,19 @@ import { auth } from "../../Config/firebase";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { updateProfile } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useUser } from "../../context/UserContext";
+
 const Profile = () => {
   const [image, setImage] = useState<File | null>(null);
+
+  const { user, setUser } = useUser();
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setImage(e.target.files[0]);
     }
   };
-  const [user] = useAuthState(auth);
+  // const [user] = useAuthState(auth);
 
   const handleUpload = async () => {
     if (image) {
@@ -30,7 +34,8 @@ const Profile = () => {
             photoURL: imageUrl,
           };
           await updateProfile(user, update); // update image url for user
-          console.log("User profile updated successfully:", update);
+          setUser((prev: any) => { return {...prev, photoURL: imageUrl}}, update)
+          console.log("User profile updated successfully:");
         }
       } catch (error) {
         console.error("Error uploading image:", error);
@@ -69,7 +74,7 @@ const Profile = () => {
               User Profile
             </Link>
             <div className="relative box-border my-7  w-96 h-[0.06rem] border-t-[1px] border-solid border-mediumblue dark:border-mediumpurple" />
-            <div className="flex flex-row gap-10 items-center">
+            <div className="flex flex-row gap-9 items-center">
               <img
                 className="relative rounded-[50%] mx-2 w-24 h-[6.25rem] object-cover"
                 alt=""
@@ -79,7 +84,7 @@ const Profile = () => {
                 type="file"
                 onChange={handleImageChange}
                 placeholder="Upload Image"
-                className="p-2 bg-mediumblue text-white font-[700] rounded-[5px]"
+                className="py-2 pl-2 pr-3 bg-mediumblue dark:bg-mediumpurple text-white font-[700] rounded-[5px] w-20 items-center justify-center"
               />
             </div>
             {/* Profile Form */}
@@ -191,7 +196,7 @@ const Profile = () => {
                   </b>
                 </div>
               </div>
-              <div className="flex flex-col pr-2 gap-1 w-1/3">
+              <div className="flex flex-col pr-2 justify-start gap-1 w-1/3">
                 <div className="relative text-[0.63rem] leading-6 font-segoe-ui text-tertiary text-right">
                   2 hrs ago
                 </div>
