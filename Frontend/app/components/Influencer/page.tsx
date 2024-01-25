@@ -95,6 +95,7 @@ const Influencers = () => {
             <img
               onClick={() => handleCardClick(index)}
               className="relative rounded-[12.39px] w-full h-[11.12rem] object-fill cursor-pointer"
+              
               alt="image"
               src={profile.profile_img}
             />
