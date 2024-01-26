@@ -155,7 +155,7 @@ const handleIsActive = (route: string) => {
 
 <div className="flex w-full flex-col gap-y-4 py-3 px-6 text-left text-[1rem] font-regular-16-24">
           {buttonData.map((button, index) => (
-            <div key={index}>
+            <div key={index} className={`${button.name==="Settings"?"group":""}`}>
               <Link
                 href={buttonRoutes[index]}key={index}
                 className={`rounded  bg-${
@@ -172,7 +172,7 @@ const handleIsActive = (route: string) => {
                 onClick={() => handleClick(button.name)}
                 >
                 <img
-                  src={handleIsActive(buttonRoutes[index]) === 'active' ? button.icon.replace('.svg', '_white.svg') : button.icon}
+                  src={handleIsActive(buttonRoutes[index]) === 'active' ? button.icon.replace('.svg', '.svg') : button.icon}
                   width={24}
                   height={24}
                   alt={button.name.toLowerCase()}
@@ -190,8 +190,8 @@ const handleIsActive = (route: string) => {
               {button.name === "Settings" ? (
                 <div
                   className={`settings-options ${
-                    handleIsActive(buttonRoutes[index]) === "active" ? '' : 'hidden'
-                  } flex flex-col`}
+                    handleIsActive(buttonRoutes[index]) === "active" ? 'flex': 'hidden'
+                  }  flex-col group-hover:flex`}
                 >
                   {button.options?.map((option, idx) => {
                     return (
@@ -237,3 +237,7 @@ const handleIsActive = (route: string) => {
 }
  
 export default Sidebar;
+
+
+
+
