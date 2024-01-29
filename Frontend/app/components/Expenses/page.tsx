@@ -28,9 +28,9 @@ const Expenses = () => {
   
     return ( 
       <div className="flex w-full  min-h-screen">
-        <div className="w-1/4 min-h-screen flex flex-col justify-between">
-          <Sidebar />
-        </div>
+        <div className="min-w-1/4 min-h-screen flex flex-col justify-between ">
+        <Sidebar />
+      </div>
         <div className="w-full bg-special-bg dark:bg-black-dark dark:text-white min-h-screen px-6 py-8 flex flex-col ">
           <div className=""><Header/></div>
           <div className="relative text-[2.25rem] py-6 font-semibold font-geist">Expenses</div>

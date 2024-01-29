@@ -153,7 +153,7 @@ const Influencers = () => {
 
   return (
     <div className="flex min-h-screen">
-      <div className="w-1/4 min-h-screen  flex flex-col justify-between">
+      <div className="min-w-1/4 min-h-screen flex flex-col justify-between ">
         <Sidebar />
       </div>
       <div className="w-full bg-special-bg dark:bg-black-dark dark:text-white px-8 py-8 flex flex-col justify-between">
