@@ -31,6 +31,7 @@ const Header = () => {
   //   const { displayName, photoURL } = user || {};
 
   const { user } = useUser();
+  console.log("a", user);
 
   return (
     <div className="relative flex lg:flex-row gap-2 lg:w-full sm:w-[80%] h-auto lg:h-12 text-left text-base dark:text-white text-black font-regular-16-24">

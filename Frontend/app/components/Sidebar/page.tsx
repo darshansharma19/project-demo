@@ -12,9 +12,11 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTheme } from "../../context/ThemeContext";
+import { useUser } from "../../context/UserContext";
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const { setUser } = useUser();
 
   const { theme } = useTheme();
   useEffect(() => {}, [theme]);
@@ -30,6 +32,7 @@ const Sidebar = () => {
     try {
       await auth.signOut();
       // Remove user details from session
+      setUser({});
       sessionStorage.removeItem("user");
       console.log("Logout Successful");
       // Display success notification

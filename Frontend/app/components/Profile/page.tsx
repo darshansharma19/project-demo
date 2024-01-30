@@ -56,15 +56,15 @@ const Profile = () => {
         <div className="">
           <Header />
         </div>
-        <div className="relative text-[2.25rem] font-semibold font-geist py-12">
+        <div className="relative text-[2.25rem] font-semibold font-geist py-12 md:py-12">
           Profile
         </div>
-        <div className="relative rounded-[10px] flex flex-row bg-white dark:bg-gray-200 dark:text-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] w-full h-[51.13rem]">
+        <div className="relative rounded-[10px] flex flex-row md:flex-row bg-white dark:bg-gray-200 dark:text-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] w-full h-[51.13rem]">
           {/* Profile Form */}
           <div className="flex p-8 w-1/2 flex-col">
             <Link
               href=""
-              className="flex no-underline font-bold  font-segoe-ui text-tertiary text-left flex-row gap-0 items-start"
+              className="flex no-underline font-bold font-segoe-ui text-tertiary text-left flex-row gap-0 items-start"
             >
               <img
                 className="relative w-5 h-5 object-contain cursor-pointer"
@@ -162,7 +162,7 @@ const Profile = () => {
             </form>
           </div>
           {/* Details */}
-          <div className="flex p-8 w-1/2 flex-col">
+          <div className="flex p-4 md:p-8 w-full md:w-1/2 flex-col ">
             <b className="flex  pl-2 font-bold flex-row gap-0 leading-7 font-segoe-ui text-tertiary text-left items-start">
               History and Recent Bookings
             </b>

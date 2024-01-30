@@ -36,8 +36,9 @@ const Expenses = () => {
           <div className="relative text-[2.25rem] py-6 font-semibold font-geist">Expenses</div>
           <div className='relative rounded-[10px] flex flex-col bg-white dark:bg-gray-200 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] w-full h-auto'>
           
-            <table className="min-w-full p-6 overflow-hidden">
-              <thead className=" border-special-bg dark:border-white  border-b border-solid">
+
+            <table className="min-w-full p-6 overflow-hidden sm:min-w-1/4">
+              <thead className=" border-special-bg dark:border-white border-b border-solid">
                 <tr>
                   <th className="py-2 px-4  border-special-bg dark:border-white  border-b border-solid ">Items</th>
                   <th className="py-2 px-4  border-special-bg dark:border-white  border-b border-solid ">Shop Name</th>
@@ -45,7 +46,7 @@ const Expenses = () => {
                   <th className="py-2 px-4  border-special-bg dark:border-white  border-b border-solid ">Payment Method</th>
                   <th className="py-2 px-4  border-special-bg dark:border-white  border-b border-solid ">Amount</th>
                 </tr>
-              </thead>
+              </thead> 
               <tbody>
                 {dataList.map((entry, index) => (
                   <tr key={index}>
@@ -63,13 +64,13 @@ const Expenses = () => {
                 ))}
               </tbody>
             </table>
-          
+            </div>
+            
             <div className="flex justify-center items-center gap-4 p-4">
               <button className="bg-mediumblue dark:bg-mediumpurple text-white dark:text-white rounded-md px-4 py-2">Add Expense</button>
            </div>
           </div>
         </div>
-      </div>
      );
 }
  
