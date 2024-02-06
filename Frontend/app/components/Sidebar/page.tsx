@@ -147,7 +147,21 @@ const Sidebar = () => {
     <div className="flex flex-col"
       ref={sidebarRef}
     >
-      <div className={`lg:hidden ${isActive?"sm:hidden":""}`}><button onClick={() => setActive(true)}>Show</button></div>
+      <div className={`lg:hidden ${isActive?"sm:hidden":""}`}><button onClick={() => setActive(true)}>  <svg
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+      height="1em"
+      width="1em"
+    
+    >
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <path d="M6 4 H18 A2 2 0 0 1 20 6 V18 A2 2 0 0 1 18 20 H6 A2 2 0 0 1 4 18 V6 A2 2 0 0 1 6 4 z" />
+      <path d="M9 4v16M14 10l2 2-2 2" />
+    </svg></button></div>
       <div 
        className={`lg:flex  ${isActive?"sm:flex":"sm:hidden"} bg-white lg:mx-auto lg:w-full lg:max-w-md h-full flex-row w-72 text-left text-sm text-black relative font-regular-16-24 dark:text-white dark:bg-gray-300`}>
         <ToastContainer />
